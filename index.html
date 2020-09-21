@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178457343-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-178457343-1');
+    </script>
+
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>AREA2</title>
+    <meta name="description" content="Showcasing local talent from the Boston area, AREA2 is a platform to broadcast art and music for people like you. Our main belief is in fostering new sounds and experiences for artists and innovators from all backgrounds, while maintaining a diverse scope of selection.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="manifest" href="site.webmanifest">-->
+    <!--<link rel="apple-touch-icon" href="icon.png">-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="selector"></div>
+    <div class="background">
+        <div class="logo">
+            <img src="/assets/images/logo.png" alt="AREA2 Online Radio" height="100">
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a id="home" href="#">home</a></li>
+                <li><a id="about" href="#about">about</a></li>
+                <li><a id="schedule" href="#schedule">schedule</a></li>
+                <li><a id="contact" href="#contact">contact</a></li>
+            </ul>
+        </div>
+
+
+        <div class="content">
+            <div id="home" class="">
+                <div id="twitch-embed"></div>
+            </div>
+            <div id="about" class="hide">
+                <h1>ABOUT</h1>
+                <p>Showcasing local talent from the Boston area, AREA2 is a platform to broadcast art and music for people like you. Our main belief is in fostering new sounds and experiences for artists and innovators from all backgrounds, all the while maintaining a diverse scope of selection.</p>
+
+                <p>AREA2 proudly stands with the Black Lives Matter movement and our friends in the LGBQT+ community. Any form of discrimination on our station is not tolerated.</p>
+                <p>Thank you for visiting us. We are currently working hard towards giving you the content you seek.</p>
+                <i>Dan Villarreal</i>
+            </div>
+
+            <div id="schedule" class="hide">
+                <h1>SCHEDULE</h1>
+                <h2>SEPTEMBER 2020 <span style="font-size:12px;"><i> Every Sunday at 05:30 PM EST</i></span></h2>
+
+                <table style="width:100%">
+                    <tr>
+                        <td>SEPT 6</td>
+                        <td>BOB DIESEL</td>
+                        <td>PROGRESSIVE BLACK/ESSENCE</td>
+                    </tr>
+                    <tr>
+                        <td>SEPT 13</td>
+                        <td>DANIEL V</td>
+                        <td>HOUSE GROUND</td>
+                    </tr>
+                    <tr>
+                        <td>SEPT 20</td>
+                        <td>BLAIRE</td>
+                        <td>VELVET</td>
+                    </tr>
+                    <tr>
+                        <td>SEPT 27</td>
+                        <td>MANU MIRAN</td>
+                        <td>VISCERAL</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="contact" class="hide">
+                <h1>CONTACT</h1>
+                <p>Reach out to us at info@area2.xyz</p>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="footer">
+            Boston based online radio area2.xyz &copy; 2020
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/vanta.globe.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <script type="text/javascript">
+    var embed = new Twitch.Embed("twitch-embed", {
+        width: $(window).width()/2,
+        height: $(window).height()/2,
+        channel: "area2radio",
+        layout: "video",
+        autoplay: false
+    });
+
+    embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+        var player = embed.getPlayer();
+        player.play();
+    });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".menu #home").click(function(){
+        hideAll();
+        $(".content #home").removeClass("hide");
+        $(".content").css("background","none");
+    });
+    $(".menu #about").click(function(){
+        hideAll();
+        $(".content #about").removeClass("hide");
+        $(".content").css("background","rgba(255,255,255, 0.85)");
+    });
+    $(".menu #schedule").click(function(){
+        hideAll();
+        $(".content #schedule").removeClass("hide");
+        $(".content").css("background","none");
+    });
+    $(".menu #contact").click(function(){
+        hideAll();
+        $(".content #contact").removeClass("hide");
+        $(".content").css("background","rgba(255,255,255, 0.85)");
+    });
+
+    function hideAll(){
+        $(".content>div").each(function(){
+            $(this).addClass("hide");
+        });
+    }
+
+});
+</script>
+
+</body>
+</html>
